@@ -14,3 +14,5 @@ The skill tracker allows mentors to track which skills a student has used during
 
 ## Usage
 After installing the code, just import the relevant folder to which ever Google sheet you are working on. You will need to give permission to run the script. It will automatically ask when you first try to run it.
+
+To make new agendas and skill trackers for a test, just make a copy of the sheet and delete any data in the cells from the original that was passed on. 
