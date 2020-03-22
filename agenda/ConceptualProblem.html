@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script src="Code.js"></script>
+    <script>
+      function showDefaultSidebarAgain(){
+        google.script.run
+          .withFailureHandler(function(){
+               google.script.run.generalError();})
+          .showDefaultSidebar()
+      }
+    </script>
+  </head>
+  <body>
+    <h2><strong>Conceptual Problem</strong></h2>
+    <h3><span style="font-weight: 400;">Definition</span></h3>
+    <ul>
+      <li style="font-weight: 400;"><span style="font-weight: 400;">A translation of your practical problem in terms of sections or subsections of the Canvas that is more specific</span></li>
+    </ul>
+    <h3><span style="font-weight: 400;">Scaffolding Questions</span></h3>
+    <ul>
+      <li style="font-weight: 400;"><span style="font-weight: 400;">What part of the Canvas does this blocker relate to?</span></li>
+      <li style="font-weight: 400;"><span style="font-weight: 400;">Are you confident in what you&rsquo;ve filled out so far?</span></li>
+      <li style="font-weight: 400;"><span style="font-weight: 400;">What are the next empty sections of the Canvas?</span></li>
+    </ul>
+    <h3><span style="font-weight: 400;">Example</span></h3>
+    <ul>
+      <li style="font-weight: 400;"><span style="font-weight: 400;">&ldquo;We need to know what our interface and system arguments are because they inform what we end up building and what study measurements are measuring for. Specifically checking for alignment across our outcomes and characteristics&rdquo;</span></li>
+    </ul>
+    <button onclick="changeSidebar('Default')">Back</button>
+  </body>
+</html>
+
+
+

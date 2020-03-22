@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      var practicalProblemSidebar = '<h2><strong>Practical Problem</strong></h2>\
+          <h2><span style="font-weight: 400;">Definition</span></h2>\
+          <ul>\
+            <li style="font-weight: 400;"><span style="font-weight: 400;">A high-level description of what is preventing you from making progress on your research.&nbsp;</span></li>\
+          </ul>\
+          <h2><span style="font-weight: 400;">Scaffolding Questions</span></h2>\
+          <ul>\
+            <li style="font-weight: 400;"><span style="font-weight: 400;">What do you want to learn?</span></li>\
+            <li style="font-weight: 400;"><span style="font-weight: 400;">What do you not know currently?</span></li>\
+          </ul>\
+          <h2><span style="font-weight: 400;">Example</span></h2>\
+          <ul>\
+            <li style="font-weight: 400;"><span style="font-weight: 400;">&ldquo;We need to make a prototype if we want to test but aren\'t sure what to build&rdquo;</span></li>\
+          </ul>\
+          <button onclick="changeSidebar(\'Default\')">Back</button>\
+        </body>';
+        
+      var conceptualProblemSidebar = '<h2><strong>Conceptual Problem</strong></h2>\
+        <h2><span style="font-weight: 400;">Definition</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">A translation of your practical problem in terms of sections or subsections of the Canvas that is more specific</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Scaffolding Questions</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What part of the Canvas does this blocker relate to?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Are you confident in what you&rsquo;ve filled out so far?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What are the next empty sections of the Canvas?</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Example</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">&ldquo;We need to know what our interface and system arguments are because they inform what we end up building and what study measurements are measuring for. Specifically checking for alignment across our outcomes and characteristics&rdquo;</span></li>\
+        </ul>\
+        <button onclick="changeSidebar(\'Default\')">Back</button>';
+        
+      var conceptualSolutionSidebar = '<h2><strong>Conceptual Solution</strong></h2>\
+        <h2><span style="font-weight: 400;">Definition</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What information you need to fill out the Canvas well</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Scaffolding Questions</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">How do you think you should approach this problem?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What DTR resources do you think might be useful and why?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What checks are there to determine if you&rsquo;ve filled out the Canvas well?</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Example</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">&ldquo;Scoping down the arguments we want to focus on based on what we can actually test.&rdquo;</span></li>\
+        </ul>\
+        <button onclick="changeSidebar(\'Default\')">Back</button>';
+        
+      var practicalSolutionSidebar = '<h2><strong>Practical Solution</strong></h2>\
+        <h2><span style="font-weight: 400;">Definition</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">How you&rsquo;re going to get that information. (Sometimes this can just be the execution of the conceptual solution)</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Scaffolding Questions</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Do you have a structured process to get the information you want?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Can you break your conceptual solution into tasks? How?</span></li>\
+        </ul>\
+        <h2><span style="font-weight: 400;">Example</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">&ldquo;Identify what features map to what outcomes, and then pick which outcomes we can reasonably test based on our current ideas and arguments we have for them&rdquo;</span></li>\
+        </ul>\
+        <button onclick="changeSidebar(\'Default\')">Back</button>';
+        
+      var summarySidebar = '<h2><strong>Summary</strong></h2>\
+        <h3><span style="font-weight: 400;">Please give an overview of problem and plans associated with the risks you\'ve identified to present during SIG.&nbsp;</span></h1>\
+        <h2><span style="font-weight: 400;">Scaffolding Questions</span></h3>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Is it clear why your problem is important?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">What stories are in your sprint log?</span></li>\
+        </ul>\
+        <button onclick="changeSidebar(\'Default\')">Back</button>'
+      
+      var questionsAndConcernsSidebar = '<h2><strong>Questions and Concerns</strong></h2>\
+        <h3><span style="font-weight: 400;">When filling out this section of the agenda, please list any questions or concerns you might have with a specific phase for a topic. This can be to go over during SIG or just so your mentor is aware.&nbsp;</span></h3>\
+        <h3><span style="font-weight: 400;">Also if you feel weak about any of your above articulations, use this as a space to explain why briefly so you can discuss this with your mentor.</span></h3>\
+        <h2><span style="font-weight: 400;">Scaffolding Questions</span></h2>\
+        <ul>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">For artifacts/documents, have you risk-assessed them for weak points that a mentor can specifically look for?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">For plans, have you considered the pros and cons of your idea(s)?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Are there any resources you have identified that you don&rsquo;t know how to use?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Are you unsure of how to actually start?</span></li>\
+          <li style="font-weight: 400;"><span style="font-weight: 400;">Do you have any trouble seeing how this fits into the canvas?</span></li>\
+        </ul>\
+        <button onclick="changeSidebar(\'Default\')">Back</button>';
+      
+      var defaultSidebar = '<h2>Expert Thinking Model</h2>\
+        <span><button onclick="changeSidebar(\'PracticalProblem\')">Practical Problem</button></span>\
+        <span><button onclick="changeSidebar(\'ConceptualProblem\')">Conceptual Problem</button></span>\
+        <span><button onclick="changeSidebar(\'ConceptualSolution\')">Conceptual Solution</button></span>\
+        <span><button onclick="changeSidebar(\'PracticalSolution\')">Practical Solution</button></span>\
+        <sp></sp>\
+        <h2>Summary</h2>\
+        <button onclick="changeSidebar(\'Summary\')">Summary</button>\
+        <sp></sp>\
+        <h2>Questions</h2>\
+        <span><button onclick="changeSidebar(\'QuestionsAndConcerns\')">Questions and Concerns</button></span>';
+  
+      
+      function changeSidebar(sidebar){
+        container = document.getElementById("container");
+        if(sidebar=='Default'){
+          console.log('inside Default');
+          container.innerHTML = defaultSidebar;
+        } else if (sidebar=='PracticalProblem'){
+          container.innerHTML = practicalProblemSidebar;
+        } else if (sidebar=='ConceptualProblem'){
+          container.innerHTML = conceptualProblemSidebar;
+        } else if (sidebar=='ConceptualSolution'){
+          container.innerHTML = conceptualSolutionSidebar;
+        } else if (sidebar=='PracticalSolution'){
+          container.innerHTML = practicalSolutionSidebar;
+        } else if (sidebar=='Summary'){
+          container.innerHTML = summarySidebar;
+        } else {
+          container.innerHTML = questionsAndConcernsSidebar;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Expert Thinking Model</h2>      
+      <button onclick="changeSidebar('PracticalProblem')">Practical Problem</button>
+      <button onclick="changeSidebar('ConceptualProblem')">Conceptual Problem</button>
+      <button onclick="changeSidebar('ConceptualSolution')">Conceptual Solution</button>
+      <button onclick="changeSidebar('PracticalSolution')">Practical Solution</button>
+      <sp></sp>
+      <h2>Summary</h2>
+      <button onclick="changeSidebar('Summary')">Summary</button>
+      <sp></sp>
+      <h2>Questions</h2>
+      <button onclick="changeSidebar('QuestionsAndConcerns')">Questions and Concerns</button>
+    </div>
+  </body>
+</html>
+
+
+
